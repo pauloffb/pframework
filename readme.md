@@ -1,5 +1,7 @@
 # PFramework
 
+Super simple PHP framework
+
 ## Install and Configuration
 
 Copy files to...
