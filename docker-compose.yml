@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+
+  apache-local.app:
+    image: ambientum/php:7.1-apache
+    container_name: apache-local.app
+    volumes:
+      - .:/var/www/app/public
+    ports:
+      - "8090:8080"
+    links:
+      - mysql-local.app
+      - mailcatcher.app
+
+  mysql-local.app:
+    image: ambientum/mariadb:10.1
+    container_name: mysql-local.app
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "9090:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+  mailcatcher.app:
+    image: ambientum/mailcatcher
+    ports:
+        - 1025:1025
+        - 1080:1080
