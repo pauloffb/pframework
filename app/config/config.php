@@ -1,5 +1,6 @@
 <?php
 // Database Config
+// Set everything up according to project specs
 define('DB_HOST', 'mysql-local.app');
 define('DB_USER', 'user');
 define('DB_PASS', 'password');
